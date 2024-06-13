@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Store from './Store';
+import { Address, Restaurant } from './model/restuarnt';
 
-function App() {
+//이 데이터를 전달해서 값을 보여줌<Store>
+let data : Restaurant= {
+  name : '창목이 식당',
+  category : 'korean',
+  address : {
+    city : 'suwon',
+    detail : 'somewhere',
+    zipCode : 123123
+  },
+  menu : [{name : 'bibimbab', price : 10000, category : 'BAB'},{name : 'guck', price : 8000, category : 'SOAP'}]
+}
+const App : React.FC = ()=>{
+  const [myRestaurant, setMyRestaurant] = useState<Restaurant>(data); //useState에 data를 넣어봄
+  const changeAddress = (address : Address) =>{  //address 바꾸는 함수 만들어 봄
+    setMyRestaurant({...myRestaurant, address : address})
+  } 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Store info={myRestaurant} changeAddress={changeAddress}/>
     </div>
   );
 }
