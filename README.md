@@ -3,6 +3,7 @@
 - 여기에 web페이지 추가해 data 보여주는 것 까지 (button누르면 data 바뀌고, 다시 원래대로 되돌리는 buton 구현)
 
 <h2>바꾸기전 data를 화면에 보여줌</h2>
+
 ![스크린샷 2024-06-14 오전 12 33 34](https://github.com/Ricardokim94/restaurant/assets/103867288/0725076a-98d7-48c5-8d43-a03aacac06df)
 
 
