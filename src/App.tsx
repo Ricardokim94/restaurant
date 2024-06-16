@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Store from './Store';
 import { Address, Restaurant } from './model/restuarnt';
+import BestMenu from './BestMenu';
 
 //이 데이터를 전달해서 값을 보여줌<Store>
 let data : Restaurant= {
@@ -20,9 +21,13 @@ const App : React.FC = ()=>{
   const changeAddress = (address : Address) =>{  //address 바꾸는 함수 만들어 봄
     setMyRestaurant({...myRestaurant, address : address})
   } 
+  const showBestMenuName = (name:string)=>{
+    return name
+  }
   return (
     <div className="App">
         <Store info={myRestaurant} changeAddress={changeAddress}/>
+        <BestMenu name="불고기피자" category="피자" showBestMenuName = {showBestMenuName}/>
     </div>
   );
 }
